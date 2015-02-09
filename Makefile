@@ -19,6 +19,7 @@ CCFLAGS	         	= -c -fpic
 MAKE			= make
 LD			= ld
 LDFLAGS			= -share	
+MKDIR_P 		= mkdir -p
 
 OBJECTS =	\
 			$(BUILD)pcan_module.o \
@@ -27,15 +28,19 @@ OBJECTS =	\
 
 default: $(LIBDIR)$(EXE)
 
+
 $(BUILD)pcan_module.o : $(SRC)pcan_module.c
+	${MKDIR_P} $(BUILD)
 	$(CPP) $(CCFLAGS) $(INC) -o $(BUILD)pcan_module.o $(SRC)pcan_module.c
 
 $(BUILD)pcan_module_wrap.o : $(SRC)pcan_module.i
+	${MKDIR_P} $(BUILD)
 	$(SWIG) $(SWIGFLAGS) $(INC) -o $(SRC)pcan_module_wrap.c -outdir $(PYTHONDIR) $(SRC)pcan_module.i 
 	$(CPP) $(CCFLAGS) $(INC) -o $(BUILD)pcan_module_wrap.o $(SRC)pcan_module_wrap.c
 
 
-$(LIBDIR)$(EXE) : $(OBJECTS)
+$(LIBDIR)$(EXE) : $(OBJECTS)	
+	${MKDIR_P} $(LIBDIR)
 	ld $(LDFLAGS) $(LIBS) $(OBJECTS) -o $(LIBDIR)$(EXE)
 
 clean:
