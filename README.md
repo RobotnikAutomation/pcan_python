@@ -8,10 +8,12 @@ External dependencies
 ---------------------
 
 - swig
-sudo apt-get install swig
+
+  - sudo apt-get install swig
 
 - peak-linux-driver-7.X
-Please visit http://peak-system.com
+
+  - Please visit http://peak-system.com
 
 - gcc
 - python-2.7
