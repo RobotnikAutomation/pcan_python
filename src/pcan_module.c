@@ -169,7 +169,9 @@ int * read_can_msg(){
 	}
 
 	last_err = nGetLastError();
-	printf("PCan::Read: error in LINUX_CAN_Read, iRet=%d  err=%d", iRet, last_err);      
+	// this ret values appeared in late library version but it doesn't mean error
+	if(iRet != 11)
+		printf("PCan::Read: error in LINUX_CAN_Read, iRet=%d  err=%d", iRet, last_err);      
 	// ERROR
 	
 	output[0] = -1;	//ret
