@@ -28,7 +28,7 @@ Library compilation
 Library installation
 --------------------
 
-> make install
+> sudo make install
 
 By default the module will be installed in /usr/lib
 
