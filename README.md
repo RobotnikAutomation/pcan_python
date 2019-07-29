@@ -11,9 +11,11 @@ External dependencies
 
   - sudo apt-get install swig
 
-- peak-linux-driver-7.X
+- peak-linux-driver-7.X and peak-linux-driver-8-X
 
   - Please visit http://peak-system.com
+  - compile the library with:
+    - make NET=NO_NETDEV_SUPPORT
 
 - gcc
 - python-2.7
